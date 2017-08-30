@@ -2,7 +2,7 @@
 	// LOAD BARS
 	$.ajax({
 		dataType: "json",
-		url: "bar_l10.geojson",
+		url: "data/bar_l10.geojson",
 		success: function(data) {
 			_bars = new L.layerGroup();
 			_bars.id = "bar";
@@ -21,7 +21,7 @@
 	// LOAD OFFICES
 	$.ajax({
 		dataType: "json",
-		url: "offices_l10.geojson",
+		url: "data/offices_l10.geojson",
 		success: function(data) {
 			_offices = new L.layerGroup();
 			_offices.id = "off";
