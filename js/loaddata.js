@@ -1,5 +1,6 @@
 
 	var _layersloaded = 0;
+	var _timer = null;
 
 	// LOAD COFFEE
 	$.ajax({
@@ -108,5 +109,21 @@
 			buildStyle();
 			$('#loadingbg').fadeOut(3000);
 			$('#loading').fadeOut(1000);
+			//_timer = setInterval(function(){ increaseDay(); }, 5000);
 		}
+	}
+
+	function increaseDay() {
+		comb = _day*24+_hour;
+		comb++;
+
+		_hour = comb%24;
+		_day = Math.round(comb/24);
+
+		if (_day > 6)
+			_day = 0;
+		if (_hour > 23)
+			_hour = 0;
+
+		buildStyle();
 	}

@@ -1,4 +1,5 @@
 	_layers = {'off':true,'bar':true};
+	var _timeron = false;
 
 	var days = ["SUNDAY","MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"];
 	var _day = 0;
@@ -95,3 +96,18 @@
 		buildStyle();
 	}
 
+	function autoplay() {
+		if (_timeron) {
+			clearInterval(_timer);
+			$('#auto').html("<img src='img/play.png' style='width:40px' />");
+			$('#lbl').css({color:'#333'});
+			_timeron = false;
+		} else {
+			_timer = setInterval(function(){ increaseDay(); }, 3200);
+			$('#auto').html("<img src='img/playon.png' style='width:41px'/>");
+			$('#lbl').css({color:'#f00'});
+			_timeron = true;
+		}
+		
+		
+	}
