@@ -85,6 +85,9 @@
 
 	function checkLayersLoaded() {
 		if(_layersloaded == 4) {
+			currentDay();
 			buildStyle();
+			$('#loadingbg').fadeOut(3000);
+			$('#loading').fadeOut(1000);
 		}
 	}

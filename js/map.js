@@ -8,6 +8,8 @@
 
 	var map = L.map('map', {zoomControl: false, maxZoom:18, minZoom:14}).setView([38.907192, -77.036871], 14);
 
+	
+	
 	// L.control.zoom({position:'bottomleft'}).addTo(map);
 
 
