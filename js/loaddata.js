@@ -1,4 +1,26 @@
 
+	var _layersloaded = 0;
+
+	// LOAD COFFEE
+	$.ajax({
+		dataType: "json",
+		url: "data/coffee_l10.geojson",
+		success: function(data) {
+			_coffee = new L.layerGroup();
+			_coffee.id = "cof";
+			_coffee.addTo(placetypes);
+		    $(data.features).each(function(key, data) {
+		    	basestyle.className = "cof"+data.properties.lvl;
+		    	basestyle.fillColor = "#a6761d";
+		    	db = new L.geoJson(data, {style: basestyle});
+		    	db.id = 'cof';
+		    	db.addTo(_coffee);
+		    });
+		    $('#layers').append("<div class='mlayers' id='lcof' style='background-color:#a6761d' onclick='toggleLayer(\"cof\")'>COFFEESHOP</div>");
+		    _layersloaded++;
+		    checkLayersLoaded();
+		}}).error(function() {});
+
 	// LOAD BARS
 	$.ajax({
 		dataType: "json",
@@ -13,9 +35,10 @@
 		    	db = new L.geoJson(data, {style: basestyle});
 		    	db.id = 'bar';
 		    	db.addTo(_bars);
-				//buildStyle();
 		    });
-		    $('#layers').append("<div class='mlayers' id='lbar' onclick='toggleLayer(\"bar\")'>BAR</div>");
+		    $('#layers').append("<div class='mlayers' id='lbar' style='background-color:#7570b3' onclick='toggleLayer(\"bar\")'>BAR</div>");
+		    _layersloaded++;
+		    checkLayersLoaded();
 		}}).error(function() {});
 
 	// LOAD OFFICES
@@ -33,5 +56,35 @@
 		    	db.id = 'off';
 		    	db.addTo(_offices);
 		    });
-		    $('#layers').append("<div class='mlayers' id='loff' onclick='toggleLayer(\"off\")'>OFFICE</div>");
+		    $('#layers').append("<div class='mlayers' id='loff' style='background-color:#d95f02' onclick='toggleLayer(\"off\")'>OFFICE</div>");
+		    _layersloaded++;
+		    checkLayersLoaded();
 		}}).error(function() {});
+
+	// LOAD MUSEUMS
+	$.ajax({
+		dataType: "json",
+		url: "data/museums_l10.geojson",
+		success: function(data) {
+			_museum = new L.layerGroup();
+			_museum.id = "mus";
+			_museum.addTo(placetypes);
+		    $(data.features).each(function(key, data) {
+		    	basestyle.className = "mus"+data.properties.lvl;
+		    	basestyle.fillColor = "#e7298a";
+		    	db = new L.geoJson(data, {style: basestyle});
+		    	db.id = 'mus';
+		    	db.addTo(_museum);
+		    });
+		    $('#layers').append("<div class='mlayers' id='lmus' style='background-color:#e7298a' onclick='toggleLayer(\"mus\")'>MUSEUM</div>");
+		    _layersloaded++;
+		    checkLayersLoaded();
+		}}).error(function() {});
+
+
+
+	function checkLayersLoaded() {
+		if(_layersloaded == 4) {
+			buildStyle();
+		}
+	}

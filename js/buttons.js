@@ -38,6 +38,22 @@
 				placetypes.addLayer(_bars);
 				$('#lbar').css({'backgroundColor':'#7570b3'});
 			}
+		} else if (t == 'mus') {
+			if (placetypes.hasLayer(_museum)) {
+				placetypes.removeLayer(_museum);
+				$('#lmus').css({'backgroundColor':'#fff'});
+			} else {
+				placetypes.addLayer(_museum);
+				$('#lmus').css({'backgroundColor':'#e7298a'});
+			}
+		} else if (t == 'cof') {
+			if (placetypes.hasLayer(_coffee)) {
+				placetypes.removeLayer(_coffee);
+				$('#lcof').css({'backgroundColor':'#fff'});
+			} else {
+				placetypes.addLayer(_coffee);
+				$('#lcof').css({'backgroundColor':'#a6761d'});
+			}
 		}
 		buildStyle();
 	}
@@ -49,6 +65,17 @@
 		} else {
 			_monochrome = true;
 			$('#monochrome').css({backgroundColor:'#fff'});
+		}
+		buildStyle();
+	}
+
+	function gradient() {
+		if(_gradient == 0.2) {
+			_gradient = 1.0;
+			$('#gradient').css({backgroundColor:'#f1efec'});
+		} else {
+			_gradient = 0.2;
+			$('#gradient').css({backgroundColor:'#fff'});
 		}
 		buildStyle();
 	}
