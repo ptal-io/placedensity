@@ -25,7 +25,7 @@
 		if (t == 'off') {
 			if (placetypes.hasLayer(_offices)) {
 				placetypes.removeLayer(_offices);
-				$('#loff').css({'backgroundColor':'#fff'});
+				$('#loff').css({'backgroundColor':'#ccc'});
 			} else {
 				placetypes.addLayer(_offices);
 				$('#loff').css({'backgroundColor':'#d95f02'});
@@ -33,7 +33,7 @@
 		} else if (t == 'bar') {
 			if (placetypes.hasLayer(_bars)) {
 				placetypes.removeLayer(_bars);
-				$('#lbar').css({'backgroundColor':'#fff'});
+				$('#lbar').css({'backgroundColor':'#ccc'});
 			} else {
 				placetypes.addLayer(_bars);
 				$('#lbar').css({'backgroundColor':'#7570b3'});
@@ -41,7 +41,7 @@
 		} else if (t == 'mus') {
 			if (placetypes.hasLayer(_museum)) {
 				placetypes.removeLayer(_museum);
-				$('#lmus').css({'backgroundColor':'#fff'});
+				$('#lmus').css({'backgroundColor':'#ccc'});
 			} else {
 				placetypes.addLayer(_museum);
 				$('#lmus').css({'backgroundColor':'#e7298a'});
@@ -49,7 +49,7 @@
 		} else if (t == 'cof') {
 			if (placetypes.hasLayer(_coffee)) {
 				placetypes.removeLayer(_coffee);
-				$('#lcof').css({'backgroundColor':'#fff'});
+				$('#lcof').css({'backgroundColor':'#ccc'});
 			} else {
 				placetypes.addLayer(_coffee);
 				$('#lcof').css({'backgroundColor':'#a6761d'});
@@ -64,7 +64,7 @@
 			$('#monochrome').css({backgroundColor:'#f1efec'});
 		} else {
 			_monochrome = true;
-			$('#monochrome').css({backgroundColor:'#fff'});
+			$('#monochrome').css({backgroundColor:'#ccc'});
 		}
 		buildStyle();
 	}
@@ -75,7 +75,16 @@
 			$('#gradient').css({backgroundColor:'#f1efec'});
 		} else {
 			_gradient = 0.2;
-			$('#gradient').css({backgroundColor:'#fff'});
+			$('#gradient').css({backgroundColor:'#ccc'});
 		}
 		buildStyle();
 	}
+
+	function currentDay() {
+		var d = new Date();
+		_day = d.getDay();
+		_hour = d.getHours();
+		buildStyle();
+	}
+
+	

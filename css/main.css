@@ -30,17 +30,17 @@ body {
 	right:0px;
 }
 #lbl {
-	width:100%;
+	width:220px;
 	text-align: center;
-	margin-top:-10px;
+	margin-top:-8px;
 	font-weight:bold;
-	font-size:30px;
+	font-size:24px;
+	margin-right:40px;
 	font-family: 'Roboto', sans-serif;
 }
 #btnshour {
 	right:10px;
 	width: 100px;
-
 	float:right;
 }
 #btnsday {
@@ -57,9 +57,10 @@ body {
 	z-index:2000;
 	left:0px;
 	width:50px;
-	height:500px;
-	background-color:#000;
+	height:100%;
+	background-color:#222;
 	margin:0;
+	border-right:solid 10px #666;
 }
 
 #nav {
@@ -140,8 +141,42 @@ body {
 	cursor:pointer;
 	float:right;
 	margin-top: 3px;
+}
+#rain {
+	width:219px;
+	border:solid 1px #ddd;
+	padding: 5px 15px;
+	border-radius:4px;
+	text-align:right;
+	font-weight:bold;
+	color:#333;
+	font-size:13px;
+	cursor:pointer;
+	float:right;
+	margin-top: 3px;
 	margin-bottom:10px;
 }
 #monochrome:hover {
 	background-color:#fff;
+}
+
+.vertical-text {
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+	color:#fff;
+	font-size:46px;
+	font-weight:bold;
+	margin-top:198px;
+	width:1100px;
+	margin-left:-524px;
+}
+#clock {
+	position:absolute;
+	top:30px;
+	right:20px;
+	z-index:3000;
+	cursor:pointer;
 }

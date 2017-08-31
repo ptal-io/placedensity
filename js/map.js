@@ -3,12 +3,12 @@
 	var _museum = null;
 	var _coffee = null;
 
-	var _gradient = 0.3;
+	var _gradient = 0.2;
 	var _monochrome = false;
 
-	var map = L.map('map', {zoomControl: false}).setView([38.907192, -77.036871], 14);
+	var map = L.map('map', {zoomControl: false, maxZoom:18, minZoom:14}).setView([38.907192, -77.036871], 14);
 
-	L.control.zoom({position:'bottomleft'}).addTo(map);
+	// L.control.zoom({position:'bottomleft'}).addTo(map);
 
 
 	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {

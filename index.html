@@ -20,16 +20,18 @@
 <body>
 
 	<div id="header">
-		
+		<div class='vertical-text' style='color:#fff'>THEMATIC PLACE TYPE REGIONS</div>
 	</div>
 	<div id="map"></div>
 	<div id="nav">
 		<div id="lbl" class="container"></div>
+		<div id='clock'><img src='img/clock.png' style='width:16px' title="Current Time" onclick='currentDay()' /></div>
 		<div class='lhead'>PLACE TYPES</div>
 		<div id="layers"></div>
 		<div class='lhead'>OPTIONS</div>
 		<div id='monochrome' onclick='monochrome();'>MONOCHROME</div>
-		<div id='gradient' style='background-color:#fff;' onclick='gradient();'>GRADIENT</div>
+		<div id='gradient' style='background-color:#ccc;' onclick='gradient();'>GRADIENT</div>
+		<div id='rain' onclick='rain();'>RAIN</div>
 		<div class='lhead'>TIME</div>
 		<div id="btnshour" class="container"></div>
 		<div id="btnsday" class="container"></div>
