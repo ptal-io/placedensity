@@ -81,10 +81,29 @@
 		    checkLayersLoaded();
 		}}).error(function() {});
 
+	// LOAD MUSEUMS
+	$.ajax({
+		dataType: "json",
+		url: "data/restaurant_l10.geojson",
+		success: function(data) {
+			_restaurants = new L.layerGroup();
+			_restaurants.id = "res";
+			_restaurants.addTo(placetypes);
+		    $(data.features).each(function(key, data) {
+		    	basestyle.className = "res"+data.properties.lvl;
+		    	basestyle.fillColor = "#1b9e77";
+		    	db = new L.geoJson(data, {style: basestyle});
+		    	db.id = 'res';
+		    	db.addTo(_restaurants);
+		    });
+		    $('#layers').append("<div class='mlayers' id='lres' style='background-color:#1b9e77' onclick='toggleLayer(\"res\")'>RESTAURANT</div>");
+		    _layersloaded++;
+		    checkLayersLoaded();
+		}}).error(function() {});
 
 
 	function checkLayersLoaded() {
-		if(_layersloaded == 4) {
+		if(_layersloaded == 5) {
 			currentDay();
 			buildStyle();
 			$('#loadingbg').fadeOut(3000);

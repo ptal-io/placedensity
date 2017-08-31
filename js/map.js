@@ -2,6 +2,7 @@
 	var _offices = null;
 	var _museum = null;
 	var _coffee = null;
+	var _restaurants = null;
 
 	var _gradient = 0.2;
 	var _monochrome = false;
@@ -9,7 +10,7 @@
 	var map = L.map('map', {zoomControl: false, maxZoom:18, minZoom:14}).setView([38.907192, -77.036871], 14);
 
 	
-	
+
 	// L.control.zoom({position:'bottomleft'}).addTo(map);
 
 
@@ -34,6 +35,7 @@
 		b = 10 - bar_sigs[x];
 		m = 10 - mus_sigs[x];
 		c = 10 - cof_sigs[x];
+		r = 10 - res_sigs[x];
 
 		for(var i=1;i<=10;i++) {
 	    	if (i <= b)
@@ -52,6 +54,10 @@
 	    		$((".cof"+i)).animate({fillOpacity: 0.0}, 2000, function() {});
 	    	else
 	    		$((".cof"+i)).animate({fillOpacity: _gradient}, 2000, function() {});
+	    	if (i <= r)
+	    		$((".res"+i)).animate({fillOpacity: 0.0}, 2000, function() {});
+	    	else
+	    		$((".res"+i)).animate({fillOpacity: _gradient}, 2000, function() {});
 	    }
 
 	    if(_monochrome) {
@@ -67,6 +73,9 @@
 		    for(var i=0;i<_coffee.getLayers().length;i++) {
 		    	_coffee.getLayers()[i].setStyle({fillColor:'#000'});
 		    }
+		    for(var i=0;i<_restaurants.getLayers().length;i++) {
+		    	_restaurants.getLayers()[i].setStyle({fillColor:'#000'});
+		    }
 		} else {
 			for(var i=0;i<_offices.getLayers().length;i++) {
 		    	_offices.getLayers()[i].setStyle({fillColor:'#d95f02'});
@@ -79,6 +88,9 @@
 		    }
 		    for(var i=0;i<_coffee.getLayers().length;i++) {
 		    	_coffee.getLayers()[i].setStyle({fillColor:'#a6761d'});
+		    }
+		    for(var i=0;i<_restaurants.getLayers().length;i++) {
+		    	_restaurants.getLayers()[i].setStyle({fillColor:'#1b9e77'});
 		    }
 		}
 	}

@@ -8,7 +8,7 @@
 		$("#btnshour").append("<div style='height:12px;font-size:10px;' class='btn' onclick='stHour("+i+")'>"+i+":00</div>")
 	}
 	for(var i=0;i<7;i++) {
-		$("#btnsday").append("<div class='btn' onclick='stDay("+i+")'>"+days[i]+"</div>")
+		$("#btnsday").append("<div style='height:60px;line-height:60px' class='btn' onclick='stDay("+i+")'>"+days[i]+"</div>")
 	}
 
 	function stDay(iday) {
@@ -54,6 +54,14 @@
 				placetypes.addLayer(_coffee);
 				$('#lcof').css({'backgroundColor':'#a6761d'});
 			}
+		} else if (t == 'res') {
+			if (placetypes.hasLayer(_restaurants)) {
+				placetypes.removeLayer(_restaurants);
+				$('#lres').css({'backgroundColor':'#ccc'});
+			} else {
+				placetypes.addLayer(_restaurants);
+				$('#lres').css({'backgroundColor':'#1b9e77'});
+			}
 		}
 		buildStyle();
 	}
@@ -87,4 +95,3 @@
 		buildStyle();
 	}
 
-	
