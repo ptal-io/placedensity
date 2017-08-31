@@ -96,8 +96,9 @@
 	}
 
 	var basestyle = {
-		"color": "#000",
+		"color": "#fff",
 		"fillColor": "#030",
-	    "weight": 0.0,
+	    "weight": 0.5,
+	    "opacity": 0.3,
 	    "fillOpacity": 0.2
 	}
