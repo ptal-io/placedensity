@@ -118,7 +118,7 @@
 		comb++;
 
 		_hour = comb%24;
-		_day = Math.round(comb/24);
+		_day = Math.floor(comb/24);
 
 		if (_day > 6)
 			_day = 0;
